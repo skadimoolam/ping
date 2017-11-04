@@ -6,7 +6,8 @@
   },
   {
     "name": "Google.com",
-    "url": "google.com"
+    "url": "google.com",
+    "port": 443
   },
   {
     "name": "Facebook",

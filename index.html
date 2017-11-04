@@ -7,7 +7,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://unpkg.com/vue@2.5.3/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue@2.5.3/dist/vue.min.js"></script>
   <style>
     #cont-table {
       margin-top: 50px;
@@ -87,8 +87,7 @@
 
           self.sites.forEach(function (site, index) {
             let url = `https://${site.url}`;
-            if (!site.port) site.port = 80;
-            if (site.port != 80 || site.port != 443) url = `${url}:${site.port}`;
+            if (site.port && site.port != 80 && site.port != 443) url += `:${site.port}`;
 
             fetch(url)
               .then((resp) => {
