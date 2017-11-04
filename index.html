@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Vue Ping</title>
+  <meta name="description" content="Simple Ping utility built with Vue to check on a Domains' status">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://unpkg.com/vue@2.5.3/dist/vue.js"></script>
+  <style>
+    #cont-table {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="app" class="container col-md-8 col-md-offset-2">
+
+    <h1>Vue Ping</h1>
+    <h4>Simple Ping utility built with Vue to check on a Domains' status</h4>
+    
+    <table class="table table-stripped table-hover" id="cont-table">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Name</th>
+          <th>URL</th>
+          <th>Port</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(site, index) in sites">
+          <td>{{ index + 1 }}</td>
+          <td>{{ site.name }}</td>
+          <td><a v-bind:href="getHref(site)" target="_blank">{{ site.url }}</a></td>
+          <td>{{ site.port }}</td>
+          <td v-if="site.status"><span class="label label-success">LIVE</span></td>
+          <td v-else><span class="label label-danger">DOWN</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      Made by <a href="https://github.com/skadimoolam">Adi</a>
+      <span class="pull-right">
+        Source code @ <a href="https://github.com/skadimoolam/ping">skadimoolam/ping</a>
+      </span>
+    </footer>
+
+  </div>
+
+  <script>
+    let app = new Vue({
+      el: "#app",
+
+      data: {
+        siteDataUrl: "./data.json",
+        sites: []
+      },
+      
+      created: function () {
+        this.loadData();
+      },
+
+      methods: {
+        getHref: function (site) {
+          if (!site.port) site.port = 80;
+          site.protocol = site.port == 443 ? "https" : "http";
+          return `${site.protocol}://${site.url}:${site.port}`;
+        },
+
+        loadData: function () {
+          let self = this
+          fetch(this.siteDataUrl)
+            .then(r => r.json())
+            .then((resp) => {
+              self.sites = resp
+              self.getStatus();
+            });
+        },
+
+        getStatus: function () {
+          let self = this;
+
+          self.sites.forEach(function (site, index) {
+            if (!site.port) site.port = 80;
+            site.protocol = site.port == 443 ? "https" : "http";
+
+            fetch(`${site.protocol}://${site.url}:${site.port}`)
+              .then((resp) => {
+                if (resp.ok && resp.status == 200) site.status = true;
+                else site.status = false;
+                self.$set(self.sites, index, site);
+              })
+          })
+        }
+      }
+    })
+  </script>
+</body>
+</html>

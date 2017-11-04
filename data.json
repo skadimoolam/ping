@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Google IN",
+    "url": "google.co.in",
+    "port": 80
+  },
+  {
+    "name": "Google.com",
+    "url": "google.com"
+  },
+  {
+    "name": "Facebook",
+    "url": "facebook.com"
+  },
+  {
+    "name": "Some Random Site",
+    "url": "somerandomsite.com",
+    "port": 8080
+  }
+]
