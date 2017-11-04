@@ -69,8 +69,7 @@
       methods: {
         getHref: function (site) {
           if (!site.port) site.port = 80;
-          if (!site.protocol) site.protocol = "https";
-          return `${site.protocol}://${site.url}:${site.port}`;
+          return `https://${site.url}:${site.port}`;
         },
 
         loadData: function () {
@@ -87,10 +86,11 @@
           let self = this;
 
           self.sites.forEach(function (site, index) {
+            let url = `https://${site.url}`;
             if (!site.port) site.port = 80;
-            if (!site.protocol) site.protocol = "https";
+            if (site.port != 80 || site.port != 443) url = `${url}:${site.port}`;
 
-            fetch(`${site.protocol}://${site.url}:${site.port}`)
+            fetch(url)
               .then((resp) => {
                 if (resp.ok && resp.status == 200) site.status = true;
                 else site.status = false;
