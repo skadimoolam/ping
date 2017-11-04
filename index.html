@@ -69,7 +69,7 @@
       methods: {
         getHref: function (site) {
           if (!site.port) site.port = 80;
-          site.protocol = site.port == 443 ? "https" : "http";
+          if (!site.protocol) site.protocol = "https";
           return `${site.protocol}://${site.url}:${site.port}`;
         },
 
@@ -88,7 +88,7 @@
 
           self.sites.forEach(function (site, index) {
             if (!site.port) site.port = 80;
-            site.protocol = site.port == 443 ? "https" : "http";
+            if (!site.protocol) site.protocol = "https";
 
             fetch(`${site.protocol}://${site.url}:${site.port}`)
               .then((resp) => {

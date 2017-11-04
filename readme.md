@@ -4,6 +4,8 @@
 
 A Pretty simple utility built with Vue.js to check if a domain is live or down.
 
+Demo at https://skadimoolam.github.io/ping/.
+
 There's no back-end where domains' details and their past status are stored.
 But there's a JSON file name `data.json`, with which you can customize the sites this app is tracking.
 
@@ -11,15 +13,16 @@ But there's a JSON file name `data.json`, with which you can customize the sites
 
 ## One Tiny Gotcha
 
-This does work in `http://localhost`, since most private websites do not allow Cross Domain request, you would 
-have to use a plugin like (Allow-Control-Allow-Origin) [https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi]
+This does not work over `http://localhost`, since most private websites do not allow Cross Domain request, you would 
+have to use a plugin like [Allow-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)
 when working on `http://localhost`.
 
 
 
 ## data.json Configurations
 
-There's not much you can configure, take a look in the code below.
+There's not much you can configure, take a look in the code below. Add or remove any site, should work as expected
+if not just make an issue here in Github.
 ``` json
 [
   {
