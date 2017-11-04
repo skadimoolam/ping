@@ -84,15 +84,15 @@
 
         getStatus: function () {
           let self = this;
-
           self.sites.forEach(function (site, index) {
             let url = `https://${site.url}`;
             if (site.port && site.port != 80 && site.port != 443) url += `:${site.port}`;
 
-            fetch(url)
+            fetch(url, { mode: 'no-cors'})
               .then((resp) => {
-                if (resp.ok && resp.status == 200) site.status = true;
-                else site.status = false;
+                site.status = true;
+                if (!resp.ok || resp.status != 200) site.status = false;
+                if (resp.type == "opaque") site.status = true;
                 self.$set(self.sites, index, site);
               })
           })

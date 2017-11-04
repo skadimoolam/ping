@@ -11,11 +11,11 @@ But there's a JSON file name `data.json`, with which you can customize the sites
 
 
 
-## One Tiny Gotcha
+## How does it check
 
-This does not work over `http://localhost`, since most private websites do not allow Cross Domain request, you would 
-have to use a plug-in like [Allow-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)
-when working over `http://localhost`.
+Vue sends a `fetch` request to the specified url, if it returns `status: 200` then it's most likely alright.
+To get around `cros` issue, this just sends an opaque request, for which most server respond without the actual
+content of their site, but the usual headers are present.
 
 
 
