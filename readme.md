@@ -18,6 +18,9 @@ To get around `cros` issue, this just sends an opaque request, for which most se
 content of their site, but the usual headers are present.
 
 
+## Usage
+Just clone this repo anywhere the browser can reach and update the `data.json` with your sites.
+
 
 ## data.json Configurations
 
