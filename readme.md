@@ -11,7 +11,7 @@ But there's a JSON file name `data.json`, with which you can customize the sites
 
 
 
-## How does it check
+## How does it work
 
 Vue sends a `fetch` request to the specified url, if it returns `status: 200` then it's most likely alright.
 To get around `cros` issue, this just sends an opaque request, for which most server respond without the actual
@@ -19,7 +19,11 @@ content of their site, but the usual headers are present.
 
 
 ## Usage
+
 Just clone this repo anywhere the browser can reach and update the `data.json` with your sites.
+
+This also has included support for Google Analytics, just switch the Property Id from Google, or you 
+remove it completely.
 
 
 ## data.json Configurations

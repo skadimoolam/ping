@@ -3,24 +3,26 @@
 <head>
   <meta charset="utf-8">
   <title>Vue Ping</title>
-  <meta name="description" content="Simple Ping utility built with Vue to check on a Domains' status">
+  <meta name="description" content="Simple Ping utility built with Vue to check on Domains' status">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://unpkg.com/vue@2.5.3/dist/vue.min.js"></script>
-  <style>
-    #cont-table {
-      margin-top: 50px;
-      margin-bottom: 50px;
-    }
-  </style>
+  <style>#cont-table { margin-top: 50px; margin-bottom: 50px; }</style>
+
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-104993242-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
 </head>
 <body>
   
   <div id="app" class="container col-md-8 col-md-offset-2">
 
     <h1>Vue Ping</h1>
-    <h4>Simple Ping utility built with Vue to check on a Domains' status</h4>
+    <h4>Simple Ping utility built with Vue to check on Domains' status</h4>
     
     <table class="table table-stripped table-hover" id="cont-table">
       <thead>
@@ -45,10 +47,15 @@
     </table>
 
     <footer>
-      Made by <a href="https://github.com/skadimoolam">Adi</a>
-      <span class="pull-right">
-        Source code @ <a href="https://github.com/skadimoolam/ping">skadimoolam/ping</a>
-      </span>
+      <h4>
+        Made by <a target="_blank" href="https://github.com/skadimoolam">Adi</a>
+        <span class="pull-right">
+          Source @ <a target="_blank" href="https://github.com/skadimoolam/ping">skadimoolam/ping</a>
+        </span>
+      </h4>
+
+      <h5>Go through the <a target="_blank" href="https://github.com/skadimoolam/ping/blob/gh-pages/readme.md">Readme</a> file to know how you can customize it for your needs.</h5>
+      <h5><b>Notice : </b> This site is bugged with Analytics to know which types of Geeks visit the most ;)</h5>
     </footer>
 
   </div>
