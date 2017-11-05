@@ -1,7 +1,7 @@
 # Vue Ping
 
 ## Description
-![Screen shot of Vue Ping](https://github.com/skadimoolam/ping/raw/master/screenshot.png "Screenshot of Vue Ping")
+![Screenshot of Vue Ping](https://github.com/skadimoolam/ping/raw/gh-pages/screenshot.png "Screenshot of Vue Ping")
 
 
 ## Description
