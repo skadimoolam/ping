@@ -1,6 +1,10 @@
 # Vue Ping
 
 ## Description
+![Screen shot of Vue Ping](https://github.com/skadimoolam/ping/raw/master/screenshot.png "Screenshot of Vue Ping")
+
+
+## Description
 
 A Pretty simple utility built with Vue.js to check if a domain is live or down.
 
