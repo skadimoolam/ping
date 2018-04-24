@@ -52,6 +52,9 @@ if not just make an issue here in Github.
 ]
 ```
 
+## Note
+I built this tool for use on a server, if you wish to run it locally you need to have some sort of a server installed. One simple option is `npm install -g serve`. Works great with this tool.
+
 ## License
 MIT License
 
